@@ -1,12 +1,8 @@
 
-        #### Algorithm
+#### Algorithm
 
+#### Review
 
-        #### Review
+#### Tips
 
-
-        #### Tips
-
-
-        #### Share
-    
+#### Share
