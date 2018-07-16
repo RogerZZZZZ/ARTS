@@ -1,0 +1,46 @@
+const path = require('path')
+const fs = require('fs')
+
+let now = new Date()
+let nowDayOfWeek = now.getDay()
+let nowDay = now.getDate()
+let nowMonth = now.getMonth()
+let nowYear = now.getFullYear()
+
+const getWeekStartDate = () => {
+    let date = new Date(nowYear, nowMonth, nowDay - nowDayOfWeek)
+    return date.toLocaleDateString()
+}
+
+const weekStartDate = getWeekStartDate()
+console.log(`Start to init this week ARTS. Week start at ${weekStartDate}`)
+
+let folderName = __dirname + `/Week_${weekStartDate}`
+
+fs.mkdir(folderName, (err) => {
+    if (err) {
+        console.log(`Folder ${folderName} is already exist`)
+        return
+    }
+    console.log('folder create successfully')
+    let fileName = '/arts.md'
+    let content = `
+    #### Algorithm
+
+
+    #### Review
+
+
+    #### Tips
+
+
+    #### Share`
+    
+    fs.writeFile(folderName + fileName, content, (err) => {
+        if (err) {
+            console.log(`File ${fileName} create failed.`)
+            return
+        }
+        console.log('file create successfully')
+    })
+})
