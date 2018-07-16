@@ -24,23 +24,22 @@ fs.mkdir(folderName, (err) => {
     }
     console.log('folder create successfully')
     let fileName = '/arts.md'
-    let content = `
-    #### Algorithm
+    let content = `\n#### Algorithm\n\n#### Review\n\n#### Tips\n\n#### Share`
 
-
-    #### Review
-
-
-    #### Tips
-
-
-    #### Share`
-    
     fs.writeFile(folderName + fileName, content, (err) => {
         if (err) {
             console.log(`File ${fileName} create failed.`)
             return
         }
         console.log('file create successfully')
+
+        let appendContent = `\n[Week_${weekStartDate}](https://github.com/RogerZZZZZ/ARTS/blob/master/Week_${weekStartDate}/arts.md)`
+        fs.appendFile(__dirname + '/README.md', appendContent, (err) => {
+            if (err) {
+                console.log('Fail to update readme.md')
+                return
+            }
+            console.log('update README successfully')
+        })
     })
 })
