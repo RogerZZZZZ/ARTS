@@ -1,4 +1,4 @@
-### ARTS - Algorithm, Review. Tip & Share
+# ARTS - Algorithm, Review. Tip & Share
 
 `Algorithm:` Complete algorithm questions, like leetcode.
 
@@ -10,5 +10,9 @@
 
 Do *at least one thing in each category* in a week. 
 
-#### Week list
+
+### Start
+Run ```node start.js``` It will automatically create the init folder and files in this week.
+
+### Week list
 [Week_2018-7-15](https://github.com/RogerZZZZZ/ARTS/blob/master/Week_2018-7-15/arts.md)
