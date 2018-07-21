@@ -11,7 +11,7 @@ Output: True
 Explanation: It's the substring "ab" twice.
 ```
 
-### Solution
+`Solution`:
 
 ```javascript
 /**
@@ -31,6 +31,55 @@ var repeatedSubstringPattern = function(s) {
         }
     }
     return false
+};
+```
+
+
+`Question` (leetcode: #849)
+In a row of seats, 1 represents a person sitting in that seat, and 0 represents that the seat is empty. 
+
+There is at least one empty seat, and at least one person sitting.
+
+Alex wants to sit in the seat such that the distance between him and the closest person to him is maximized. 
+
+Return that maximum distance to closest person.
+
+```
+Input: [1,0,0,0,1,0,1]
+Output: 2
+Explanation: 
+If Alex sits in the second open seat (seats[2]), then the closest person has distance 2.
+If Alex sits in any other open seat, the closest person has distance 1.
+Thus, the maximum distance to the closest person is 2.
+```
+
+`Solution`
+```javascript
+/**
+ * @param {number[]} seats
+ * @return {number}
+ */
+var maxDistToClosest = function(seats) {
+    let maxNumber = 0
+    let tmpCount = 0
+    let flag = false
+    for (let i = 0; i < seats.length ; i++) {
+        if (seats[i] === 0) {
+            tmpCount += 1
+        } else {
+            let tmp = 0
+            if (flag) {
+                tmp = Math.ceil(tmpCount/2)
+            } else {
+                tmp = tmpCount
+            }
+            if (tmp > maxNumber) maxNumber = tmp
+            flag = true
+            tmpCount = 0
+        }
+        if (i === seats.length - 1 && tmpCount > maxNumber) maxNumber = tmpCount
+    }
+    return maxNumber
 };
 ```
 
