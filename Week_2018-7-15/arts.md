@@ -11,7 +11,7 @@ Output: True
 Explanation: It's the substring "ab" twice.
 ```
 
-### Solution
+`Solution`:
 
 ```javascript
 /**
@@ -31,6 +31,55 @@ var repeatedSubstringPattern = function(s) {
         }
     }
     return false
+};
+```
+
+
+`Question` (leetcode: #849)
+In a row of seats, 1 represents a person sitting in that seat, and 0 represents that the seat is empty. 
+
+There is at least one empty seat, and at least one person sitting.
+
+Alex wants to sit in the seat such that the distance between him and the closest person to him is maximized. 
+
+Return that maximum distance to closest person.
+
+```
+Input: [1,0,0,0,1,0,1]
+Output: 2
+Explanation: 
+If Alex sits in the second open seat (seats[2]), then the closest person has distance 2.
+If Alex sits in any other open seat, the closest person has distance 1.
+Thus, the maximum distance to the closest person is 2.
+```
+
+`Solution`
+```javascript
+/**
+ * @param {number[]} seats
+ * @return {number}
+ */
+var maxDistToClosest = function(seats) {
+    let maxNumber = 0
+    let tmpCount = 0
+    let flag = false
+    for (let i = 0; i < seats.length ; i++) {
+        if (seats[i] === 0) {
+            tmpCount += 1
+        } else {
+            let tmp = 0
+            if (flag) {
+                tmp = Math.ceil(tmpCount/2)
+            } else {
+                tmp = tmpCount
+            }
+            if (tmp > maxNumber) maxNumber = tmp
+            flag = true
+            tmpCount = 0
+        }
+        if (i === seats.length - 1 && tmpCount > maxNumber) maxNumber = tmpCount
+    }
+    return maxNumber
 };
 ```
 
@@ -137,3 +186,70 @@ There is an attribute named `networkStatus`:
 - `8. error`: No request is in flight for this query, but one or more errors were detected.
 
 ## Share
+### About Front-end Modularization
+[前端模块化开发那点历史](https://github.com/seajs/seajs/issues/588)
+
+**AMD**
+- 依赖前置
+- 主函数的执行在所有依赖调用之后
+- 异步加载
+- 加载依赖即执行依赖
+
+```javascript
+define(
+    //The name of this module
+    "types/Manager",
+
+    //The array of dependencies
+    ["types/Employee"],
+
+    //The function to execute when all dependencies have loaded. The
+    //arguments to this function are the array of dependencies mentioned
+    //above.
+    function (Employee) {
+        function Manager () {
+            this.reports = [];
+        }
+
+        //This will now work
+        Manager.prototype = new Employee();
+
+        //return the Manager constructor function so it can be used by
+        //other modules.
+        return Manager;
+    }
+);
+```
+
+弊端
+- 依赖提前声明在代码书写上不是那么友好
+- 模块内部与 NodeJS 的 Modules 有一定的差异 (关于第二点的问题需要特别说明下。其实无论是 CMD 还是 AMD 的异步模块，都无法与同步模块规范保持一致（NodeJS 的 Modules），只有谁比谁更像同步模块而已。AMD 要转换为同步模块，除了去掉define函数的包裹外，只需要在头部使用require把依赖声明好，而 CMD 只需要去掉define函数的包裹即可。)
+
+
+**CMD**
+- 依赖就近
+- 异步加载
+- require处才执行依赖
+
+```javascript
+define(function(require, exports, module) {
+  var a = require('a')
+  var b = require('b')
+  // do sth
+  ...
+})
+```
+
+弊端
+- 不能直接压缩：`require`是局部变量，意味着不能直接的通过压缩工具进行压缩，若`require`这个变量被替换，加载器与自动化工具将无法获取模块的依赖。
+
+解决方案
+```javascript
+define(['a', 'b'], function(require, exports, module) {
+   // ...
+})
+```
+
+**ES Modules**
+
+[A cartoon deep-live](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/)
