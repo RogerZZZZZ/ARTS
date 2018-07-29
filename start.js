@@ -34,7 +34,7 @@ fs.mkdir(folderName, (err) => {
         console.log('file create successfully')
 
         let appendContent = `\n[Week_${weekStartDate}](https://github.com/RogerZZZZZ/ARTS/blob/master/Week_${weekStartDate}/arts.md)`
-        fs.appendFile(__dirname + '/README.md', appendContent, (err) => {
+        fs.appendFile(__dirname + '\n/README.md', appendContent, (err) => {
             if (err) {
                 console.log('Fail to update readme.md')
                 return
