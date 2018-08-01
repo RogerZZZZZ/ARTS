@@ -4,6 +4,8 @@
 
 [Power of Four](https://leetcode.com/problems/power-of-four/description/)
 
+[Arranging Coins](https://leetcode.com/problems/arranging-coins/description/)
+
 
 ## Review
 
