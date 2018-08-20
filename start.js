@@ -24,7 +24,7 @@ fs.mkdir(folderName, (err) => {
     }
     console.log('folder create successfully')
     let fileName = '/arts.md'
-    let content = `#Week ${weekStartDate}\n## Algorithm\n\n## Review\n\n## Tips\n\n## Share`
+    let content = `# Week ${weekStartDate}\n## Algorithm\n\n## Review\n\n## Tips\n\n## Share`
 
     fs.writeFile(folderName + fileName, content, (err) => {
         if (err) {
