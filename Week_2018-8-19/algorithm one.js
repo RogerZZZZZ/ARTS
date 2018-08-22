@@ -14,7 +14,11 @@ function TreeNode(val) {
  * @param {TreeNode} root
  * @return {number}
  */
-let len = 0
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var len = 0
 var longestUnivaluePath = function(root) {
     if (root === null) return 0
     len = 0
@@ -27,8 +31,8 @@ const getLen = (node, val) => {
     const left = getLen(node.left, node.val)
     const right = getLen(node.right, node.val)
 
-    len = Math.max(left, left + right)
-    if (val == node.val)  return Math.max(left, right) + 1;
+    len = Math.max(len, left + right)
+    if (val === node.val)  return Math.max(left, right) + 1;
     return 0;
 }
 
