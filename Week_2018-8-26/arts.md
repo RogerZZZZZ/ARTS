@@ -2,6 +2,10 @@
 
 ## Algorithm
 
+[705. Design HashSet](https://leetcode.com/problems/design-hashset/description/)
+
+[]()
+
 ## Review
 > Translate one article about v8 engine.
 
