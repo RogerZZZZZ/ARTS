@@ -197,3 +197,11 @@ f('2', '1', '3') // 2
 ```
 
 ## Share
+
+> Topic: Redux
+
+主要来自于公司的works college. 分享了Redux对于公司内部大量使用后端渲染的一些改善。主要是可以在前端进行一些状态的管理，比Vuex多一些对之前状态的记录和import，可以实现时光机的功能等，大大提高debug的速度。
+
+再来是一些Redux的基础知识，分为view, action, dispatcher, midderware, reducer等.
+
+其中middlerware可以详细讲一下，可以理解为reducer的pre-task，可以在其中实现例如log之类的操作，或是将一些参数改变为reducer可以接受的参数，提高可用度和扩展性。
