@@ -187,3 +187,21 @@ filterNonUniqueBy(
 ```
 
 ## Share
+
+This week share also came from the works college. The topic is **DevOps**, but the content of sharing is only not about the concept in computer science scope. But the basic concept of it.
+
+![DevOps in software development](https://github.com/RogerZZZZZ/ARTS/blob/master/Week_2018-9-2/arts.md)
+
+`Mike Dilwortrh, Agile and DevOps transformation lead` said that:
+
+> DevOps is a culture, not a role! The whole company needs to be doing DevOps for it to work.
+
+What impressed me most is the technical strategy that could imporve the system robustness, the ability of tolerating the error, and decrease the time spending of recover the service. `Netflix Chaos Monkey`, what it does, for example like randomly removing the server. Here is another explanation of it. 
+
+> Chaos Monkey is a tool that Netflix created to turn the volume on system testing to 11. If it is vital for you to be fault tolerant and flexible, you need to prove that it the case, and the only real way to do this is to break things in production and see what happens.
+
+Related articles:
+
+[Netflix Chaos Monkey Upgraded](https://medium.com/netflix-techblog/netflix-chaos-monkey-upgraded-1d679429be5d)
+
+And the github repo: [chaosmonkey](https://github.com/netflix/chaosmonkey)
