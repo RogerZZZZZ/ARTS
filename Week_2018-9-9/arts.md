@@ -8,6 +8,10 @@
 
 ## Review
 
+**Translation**
+
+[Explaining JavaScript VMs in JavaScript - Inline Caches](https://github.com/RogerZZZZZ/V8-blog/tree/master/translation/Explain-Javascript-VMs-in%20Javascript)
+
 ## Tips
 
 > 30-second-of-code
