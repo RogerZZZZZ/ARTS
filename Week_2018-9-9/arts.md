@@ -2,6 +2,10 @@
 
 ## Algorithm
 
+[617. Merge Two Binary Trees](https://leetcode.com/problems/merge-two-binary-trees/description/)
+
+[852. Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/description/)
+
 ## Review
 
 ## Tips
