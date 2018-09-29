@@ -2,6 +2,10 @@
 
 ## Algorithm
 
+[852. Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/description/)
+
+[728. Self Dividing Numbers](https://leetcode.com/problems/self-dividing-numbers/description/)
+
 ## Review
 
 ## Tips
