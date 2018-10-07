@@ -8,6 +8,8 @@
 
 ## Review
 
+Translation of [Explaining JavaScript VMs in JavaScript - Inline Caches](https://github.com/RogerZZZZZ/V8-blog/tree/master/Explain-Javascript-VMs-in-Javascript)
+
 ## Tips
 
 #### Array
