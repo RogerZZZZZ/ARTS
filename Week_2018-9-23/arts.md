@@ -4,6 +4,8 @@
 
 ## Review
 
+## Tips
+
 #### Array
 
 > **similarity**
@@ -208,7 +210,5 @@ zipWith(
 
 zipWith([1, 2], [3, 4]) // [[1, 3], [2, 4]]
 ```
-
-## Tips
 
 ## Share
