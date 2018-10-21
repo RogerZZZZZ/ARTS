@@ -218,3 +218,9 @@ zipWith([1, 2], [3, 4]) // [[1, 3], [2, 4]]
 ```
 
 ## Share
+
+[coding tip to code without loops](https://edgecoders.com/coding-tip-try-to-code-without-loops-18694cf06428)
+
+The reason is that `for-loop`(including for in, for each....etc) is called `imperative approach`, which is actualy closed to the computer instructions, not like how we think.
+
+So just replace the `for-loop` with `map, reduce, filter`
