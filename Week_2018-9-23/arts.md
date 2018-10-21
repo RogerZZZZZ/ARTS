@@ -2,7 +2,13 @@
 
 ## Algorithm
 
+[561. Array Partition I](https://leetcode.com/problems/array-partition-i/description/)
+
+[922. Sort Array By Parity II](https://leetcode.com/problems/sort-array-by-parity-ii/description/)
+
 ## Review
+
+Translate article [Understanding V8's Bytecode](https://github.com/RogerZZZZZ/V8-blog/tree/master/Understanding-V8's-Bytecode)
 
 ## Tips
 
