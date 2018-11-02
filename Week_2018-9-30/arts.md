@@ -8,6 +8,10 @@
 
 ## Review
 
+translation: [JavaScript engine fundamentals: Shapes and Inline Caches](https://github.com/RogerZZZZZ/V8-blog/tree/master/Shapes-and-Inline-Caches)
+
+## Tips
+
 #### Browser
 
 > **copyToClipboard**
@@ -251,7 +255,5 @@ const triggerEvent = (el, eventType, detail) =>
 triggerEvent(document.getElementById('myId'), 'click');
 triggerEvent(document.getElementById('myId'), 'click', { username: 'bob' });
 ```
-
-## Tips
 
 ## Share
