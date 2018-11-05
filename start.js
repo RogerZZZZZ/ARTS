@@ -12,7 +12,7 @@ const getWeekStartDate = () => {
     return date.toLocaleDateString()
 }
 
-const weekStartDate = getWeekStartDate()
+const weekStartDate = '2018-10-06'
 console.log(`Start to init this week ARTS. Week start at ${weekStartDate}`)
 
 let folderName = __dirname + `/Week_${weekStartDate}`
@@ -23,7 +23,7 @@ fs.mkdir(folderName, (err) => {
         return
     }
     console.log('folder create successfully')
-    let fileName = '/arts.md'
+    let fileName = '/README.md'
     let content = `# Week ${weekStartDate}\n\n## Algorithm\n\n## Review\n\n## Tips\n\n## Share`
 
     fs.writeFile(folderName + fileName, content, (err) => {
@@ -33,7 +33,7 @@ fs.mkdir(folderName, (err) => {
         }
         console.log('file create successfully')
 
-        let appendContent = `\n\n[Week_${weekStartDate}](https://github.com/RogerZZZZZ/ARTS/blob/master/Week_${weekStartDate}/arts.md)`
+        let appendContent = `\n\n[Week_${weekStartDate}](https://github.com/RogerZZZZZ/ARTS/blob/master/Week_${weekStartDate})`
         fs.appendFile(__dirname + '/README.md', appendContent, (err) => {
             if (err) {
                 console.log('Fail to update readme.md')
