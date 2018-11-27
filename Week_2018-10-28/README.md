@@ -42,12 +42,149 @@ useEffect(() => {
   return () => {
     // some clean up operations
   }
+}, [param])
+```
+
+第二个参数`param`，限定useEffect的作用范围
+
+
+```js
+  // 通过key的更新可以重置component的state
+  <ProgressBar
+    key={currentIndex + isPlaying}
+    time={SlIDE_DURATION}
+    animate={isPlaying}
+  />
+```
+
+
+#### useReducer -- colocation
+
+```js
+const [state, dispatch] = useReducer((state, action) => {
+  switch(action.type) {
+    case 'PROGRESS':
+    case 'NEXT':
+      return {
+        ...state,
+      }
+    default:
+      return state
+  }
 })
 ```
 
-`Customer Hook`
-
 ## Tips
+
+#### Utility
+
+> **cloneRegExp**
+
+```javascript
+const cloneRegExp = regExp => new RegExp(regExp.source, regExp.flags);
+```
+
+
+> **coalesceFactory**
+
+Returns a customized coalesce function that returns the first argument that returns true from the provided argument validation function.
+
+```javascript
+const coalesceFactory = valid => (...args) => args.find(valid);
+
+const customCoalesce = coalesceFactory(_ => ![null, undefined, '', NaN].includes(_));
+customCoalesce(undefined, null, NaN, '', 'Waldo'); // "Waldo"
+```
+
+
+> **extendHex**
+
+```javascript
+const extendHex = shortHex =>
+  '#' +
+  shortHex
+    .slice(shortHex.startsWith('#') ? 1 : 0)
+    .split('')
+    .map(x => x + x)
+    .join('');
+
+extendHex('#03f'); // '#0033ff'
+extendHex('05a'); // '#0055aa'
+```
+
+
+> **isBrowser**
+
+Determines if the current runtime environment is a browser so that front-end modules can run on the server (Node) without throwing errors.
+
+```javascript
+const isBrowser = () => ![typeof window, typeof document].includes('undefined');
+
+isBrowser(); // true (browser)
+isBrowser(); // false (Node)
+```
+
+
+> **mostPerformant**
+
+```javascript
+const mostPerformant = (fns, iterations = 10000) => {
+  const times = fns.map(fn => {
+    const before = performance.now();
+    for (let i = 0; i < iterations; i++) fn();
+    return performance.now() - before;
+  });
+  return times.indexOf(Math.min(...times));
+};
+
+mostPerformant([
+  () => {
+    // Loops through the entire array before returning `false`
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, '10'].every(el => typeof el === 'number');
+  },
+  () => {
+    // Only needs to reach index `1` before returning false
+    [1, '2', 3, 4, 5, 6, 7, 8, 9, 10].every(el => typeof el === 'number');
+  }
+]); // 1
+```
+
+
+> **randomHexColorCode**
+
+```javascript
+const randomHexColorCode = () => {
+  let n = (Math.random() * 0xfffff * 1000000).toString(16);
+  return '#' + n.slice(0, 6);
+};
+
+randomHexColorCode(); // "#e34155"
+```
+
+
+> **RGBToHex**
+
+```javascript
+const RGBToHex = (r, g, b) => ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
+
+RGBToHex(255, 165, 1); // 'ffa501'
+```
+
+
+> **timeTaken**
+
+Measures the time taken by a function to execute.
+
+```javascript
+const timeTaken = callback => {
+  console.time('timeTaken');
+  const r = callback();
+  console.timeEnd('timeTaken');
+  return r;
+};
+
+timeTaken(() => Math.pow(2, 10)); // 1024, (logged): timeTaken: 0.02099609375ms
+```
 
 ## Share
 
