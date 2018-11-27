@@ -4,7 +4,7 @@
 
 [872. Leaf-Similar Trees](https://leetcode.com/problems/leaf-similar-trees/description/)
 
-[893. Groups of Special-Equivalent Strings](https://leetcode.com/problems/groups-of-special-equivalent-strings/description/)
+[766. Toeplitz Matrix](https://leetcode.com/problems/toeplitz-matrix/description/)
 
 ## Review
 
