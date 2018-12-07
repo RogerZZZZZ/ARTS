@@ -183,6 +183,56 @@ console.log(Greeting.prototype.isReactComponent); // ✅ Yes
 
 ## Tips
 
+HOC和Parent Component的区别：
+
+```js
+// common React
+view = render(state)
+
+// HOC
+compose(render)(state)
+
+//parent component
+render(render(state))
+```
+
+- DOM 相关。建议使用 parent component
+- DOM 不相关，如校验、权限、请求发送、数据转换这类，通过数据变化间接控制 DOM。可以使用 HOC
+- 交叉的部分，DOM 相关，但可以做到完全内聚，即这些 DOM 不会和外部有关联。均可
+
+HOC的具体实践，有一篇很好的文章叫做[基于 Decorator 的组件扩展实践](https://zhuanlan.zhihu.com/p/22054582)
+
+```js
+function formFactoryFactory({
+  validator,
+  trigger = 'onChange',
+  ...
+}) {
+  return FormFactory(WrappedComponent) {
+    return class Decorator extends React.Component {
+      getBind(trigger, validator) {
+        ...
+      }
+      render() {
+        const newProps = {
+          ...this.props,
+          [trigger]: this.getBind(trigger, validator),
+          ...
+        }
+        return <WrappedComponent {...newProps} />
+      }
+    }
+  }
+}
+
+// 调用
+formFactoryFactory({
+  validator: (value) => {
+    return value !== '';
+  }
+})(<Input placeholder="请输入..." />)
+```
+
 ## Share
 
 Dan大神的一句话，真是很激励人
