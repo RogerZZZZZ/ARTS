@@ -2,6 +2,10 @@
 
 ## Algorithm
 
+[706. Design HashMap](https://leetcode.com/problems/design-hashmap/)
+
+[427. Construct Quad Tree](https://leetcode.com/problems/construct-quad-tree/)
+
 ## Review
 
 [https://overreacted.io/making-setinterval-declarative-with-react-hooks/](Making setInterval Declarative with React Hooks)
@@ -188,6 +192,8 @@ function Counter() {
 ```
 
 ## Tips
+
+**C Primer Chapter 1-4**
 
 ## Share
 
