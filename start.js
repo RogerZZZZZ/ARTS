@@ -12,7 +12,7 @@ const getWeekStartDate = () => {
     return date.toLocaleDateString()
 }
 
-const weekStartDate = '2018-12-09'
+const weekStartDate = '2018-12-16'
 console.log(`Start to init this week ARTS. Week start at ${weekStartDate}`)
 
 let folderName = __dirname + `/Week_${weekStartDate}`
