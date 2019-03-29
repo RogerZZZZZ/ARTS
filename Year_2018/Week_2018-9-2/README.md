@@ -190,7 +190,7 @@ filterNonUniqueBy(
 
 This week share also came from the works college. The topic is **DevOps**, but the content of sharing is only not about the concept in computer science scope. But the basic concept of it.
 
-![DevOps in software development](https://github.com/RogerZZZZZ/ARTS/blob/master/Week_2018-9-2/arts.md)
+![DevOps in software development](https://github.com/RogerZZZZZ/ARTS/blob/master/Year_2018/Week_2018-9-2/arts.md)
 
 `Mike Dilwortrh, Agile and DevOps transformation lead` said that:
 
