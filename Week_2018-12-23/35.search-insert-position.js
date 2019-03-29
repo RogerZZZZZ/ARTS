@@ -1,0 +1,74 @@
+/*
+ * @lc app=leetcode id=35 lang=javascript
+ *
+ * [35] Search Insert Position
+ *
+ * https://leetcode.com/problems/search-insert-position/description/
+ *
+ * algorithms
+ * Easy (40.55%)
+ * Total Accepted:    372.2K
+ * Total Submissions: 917.9K
+ * Testcase Example:  '[1,3,5,6]\n5'
+ *
+ * Given a sorted array and a target value, return the index if the target is
+ * found. If not, return the index where it would be if it were inserted in
+ * order.
+ * 
+ * You may assume no duplicates in the array.
+ * 
+ * Example 1:
+ * 
+ * 
+ * Input: [1,3,5,6], 5
+ * Output: 2
+ * 
+ * 
+ * Example 2:
+ * 
+ * 
+ * Input: [1,3,5,6], 2
+ * Output: 1
+ * 
+ * 
+ * Example 3:
+ * 
+ * 
+ * Input: [1,3,5,6], 7
+ * Output: 4
+ * 
+ * 
+ * Example 4:
+ * 
+ * 
+ * Input: [1,3,5,6], 0
+ * Output: 0
+ * 
+ * 
+ */
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var searchInsert = function(nums, target) {
+  let right = nums.length - 1
+  let left = 0
+  let middle = Math.floor((left + right) / 2)
+  while(nums[middle] !== target) {
+    if (left < right) {
+      if (nums[middle] > target) {
+        right = middle - 1
+      } else if (nums[middle] < target) {
+        left = middle + 1
+      } else {
+        return middle
+      }
+      middle = Math.floor((left + right) / 2)
+    } else {
+      return nums[left] > target ? left : left + 1
+    }
+  }
+  return middle
+};
+
