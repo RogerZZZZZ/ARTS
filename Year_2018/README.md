@@ -1,5 +1,8 @@
 Year 2018 Summary
 
+### Start
+Run ```node start.js``` It will automatically create the init folder and files in this week.
+
 ### Week list
 [Week_2018-7-15](https://github.com/RogerZZZZZ/ARTS/blob/master/Year_2018/Week_2018-7-15)
 
