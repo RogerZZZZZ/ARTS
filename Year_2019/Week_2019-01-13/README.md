@@ -8,6 +8,66 @@
 
 ## Review
 
+[how to use react refs](https://medium.com/@rossbulat/how-to-use-react-refs-4541a7501663)
+
+Advantages of refs: By doing this we are in fact changing the state of an input element without any React state updates.
+
+> In componentWillMount, the ref is null.
+
+> Cannot attach refs to functional components in React
+
+> We can also pass functions into an element’s ref attribute, instead of a ref object — these types of refs are called callback refs. 
+
+```js
+class MyComponent extends React.Component {
+  
+  constructor(props) {
+    super(props)
+    this.myInput = null;
+  }
+  focusMyInput = () => {
+    if (this.myInput) this.myInput.focus();
+  };
+  setMyInputRef = element => {
+    this.myInput = element;
+  };
+  componentDidMount() {
+   this.focusMyInput();
+  }
+  render() {
+    return (
+      <input       
+        name="email"
+        onChange={this.onChange}
+        ref={this.setMyInputRef}
+        type="text"
+    )
+  }
+}
+```
+
+> Forwarding Refs
+
+parent component could access its child component
+
+```js
+//handling ref forwarding to MyInput component
+const MyInput = React.forwardRef((props, ref) => {
+   return(<input name={props.name} ref={ref} />);
+});
+
+// we can now pass a ref down into MyInput from a parent component
+const MyComponent = () => {
+   let ref = React.createRef();
+   return (
+     <MyInput
+       name="email" 
+       ref={ref}
+     />
+   );
+}
+```
+
 ## Tips
 
 **ES10**

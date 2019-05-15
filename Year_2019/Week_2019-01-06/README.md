@@ -10,6 +10,85 @@
 
 ## Review
 
+[Cache your React event listeners to improve performance](https://medium.com/@Charles_Stover/cache-your-react-event-listeners-to-improve-performance-14f635a62e15)
+
+我们知道之前为什么要必要使用匿名函数作为props传入react子组件中，因为在你每次rerender的时候，匿名函数都会被判断为有更新，而再次渲染子组件，导致性能消耗。
+
+```js
+class SomeComponent extends React.PureComponent {
+
+  get instructions() {
+    if (this.props.do) {
+      return 'Click the button: ';
+    }
+    return 'Do NOT click the button: ';
+  }
+
+  render() {
+    return (
+      <div>
+        {this.instructions}
+        <Button onClick={() => alert('!')} />
+      </div>
+    );
+  }
+}
+```
+
+fix: 把匿名函数单独提出来作为函数传入.
+
+而现在还有个场景
+
+```js
+class SomeComponent extends React.PureComponent {
+  render() {
+    return (
+      <ul>
+        {this.props.list.map(listItem =>
+          <li key={listItem.text}>
+            <Button onClick={(listItem.id) => alert(listItem.text)} />
+          </li>
+        )}
+      </ul>
+    );
+  }
+}
+```
+
+有个比较好的解决方法是：借助一个对象来缓存函数
+
+```js
+class SomeComponent extends React.PureComponent {
+
+  // Each instance of SomeComponent has a cache of click handlers
+  // that are unique to it.
+  clickHandlers = {};
+
+  // Generate and/or return a click handler,
+  // given a unique identifier.
+  getClickHandler(key) {
+
+    // If no click handler exists for this unique identifier, create one.
+    if (!Object.prototype.hasOwnProperty.call(this.clickHandlers, key)) {
+      this.clickHandlers[key] = () => alert(key);
+    }
+    return this.clickHandlers[key];
+  }
+
+  render() {
+    return (
+      <ul>
+        {this.props.list.map(listItem =>
+          <li key={listItem.text}>
+            <Button onClick={this.getClickHandler(listItem.text)} />
+          </li>
+        )}
+      </ul>
+    );
+  }
+}
+```
+
 ## Tips
 
 **[CSS]**
