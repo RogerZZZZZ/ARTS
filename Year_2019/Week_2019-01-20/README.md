@@ -10,6 +10,17 @@
 
 ## Review
 
+[Advanced Static Types in Typesciprt]
+
+1. null/undefined可以被赋值给任意类型
+
+解决方法: tsconfig => `"strictNullCheck": "true"`
+
+2. `const container = document.getElementById('container')!`
+
+
+[Understand Typescript's Control Flow Based Type Analysis]
+
 ## Tips
 
 [next.js]
