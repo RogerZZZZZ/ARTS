@@ -189,6 +189,4 @@ var s = people.next.next.name;
 var s = people.next.next.next.name;
 ```
 
-
-
 ## Share
