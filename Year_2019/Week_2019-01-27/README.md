@@ -4,6 +4,43 @@
 
 ## Review
 
+[A Cartoon Intro to Fiber](https://www.youtube.com/watch?v=ZCuYPiUIONs)
+
+Fiber是一个新的reconciliation algorithm，防止阻塞主线程
+
+其中有几个重要的phases
+
+1. render/reconciliation
+
+- build fiber tree, work-in-prograss tree.
+- list changes, but does not make the change
+
+> could be interrupted by main thread to do other things else
+
+2. commit
+
+- make changes to the dom
+
+> could not be interrupted
+
+
+react又是如何知道什么时候main thread有时间处理update，有多长时间可以使用的呢，答案是`requestIdleCallback`
+
+> work loop (cooperation scheduling)
+
+- next unit of work
+- time remaining
+
+
+> Priorities
+
+- Synchronous // same as stack rec.
+- Task // before next tick
+- Animation // before next frame
+- High
+- Low
+- Offscreen // like hidden
+
 ## Tips
 
 [typescript handbook]

@@ -4,6 +4,120 @@
 
 ## Review
 
+[What's new in Javascript (Google I/O 2019)](https://www.youtube.com/watch?v=c0oy0vQKEZE)
+
+1. private property
+
+```js
+class IncreasingCounter {
+  #count = 0
+  get value() {
+    return this.#count
+  }
+
+  increment() {
+    this.#count++
+  }
+}
+```
+
+2. BigInt
+
+```js
+12345678901234567890n.toLocaleString('en')
+// -> 12,345,678,901,234,567,890
+
+1234567890123456789n * 123n
+```
+
+3. flat / flatMap
+
+4. Object.fromEntries
+
+5. globalThis variable
+
+can help you to get the current global `this` no matter you in browser, node or modules
+
+6. Intl.RelativeTimeFormat
+
+```js
+const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' })
+
+rtf.format(-1, 'day')
+// -> yesterday
+
+rtf.format(0, 'day')
+// -> tody
+
+rtf.format(1, 'week')
+// -> next week
+```
+
+7. Intl.ListFormat
+
+```js
+const lfEnglish = new Intl.ListFormat('en', { type: 'disjunction' })
+
+lfEnglish.format(['Ada', 'Grace'])
+// -> Ada or Grace
+
+lfEnglish.format(['Ada', 'Grace', 'Ida'])
+// -> Ada, Grace, or Ida
+
+```
+
+8. Intl.DateTimeFormat
+
+```js
+const fmt = new Intl.DateTimeFormat('en', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+})
+
+const output = fmt.formatRange(start, end)
+// -> May 7 - 9, 2019
+```
+
+9. can use `await` in top-level
+
+10. Promise.allSettled
+
+give the signal when all promise are done, despite of the states of them
+
+11. Promise.any
+
+Any of the promises was fulfilled. Not like the Promise.race, will return the reject case.
+
+12. WeakRef
+
+```js
+// the reason does not use weakMap is that the key is string
+const cache = new Map()
+function getImageCached(name) {
+  let ref = cache.get(name)
+  if (ref !== undefined) {
+    let deref = ref.deref()
+    if (deref !== undefined) return deref
+  }
+  const image = performExpensiveOperation(name)
+  ref = new WeakRef(image)
+  cache.set(name, ref)
+  finializationGroup.register(image, name)
+  return image
+}
+
+// because the key will not be garbage-collected
+const finalizationGroup = new FinalizationGroup((iterator) => {
+  for (const name of iterator) {
+    const ref = cache.get(name)
+    if (ref !== undefined && ref.deref === undefined) {
+      cache.delete(name)
+    }
+  }
+})
+```
+
 ## Tips
 
 [typescript handbook]
