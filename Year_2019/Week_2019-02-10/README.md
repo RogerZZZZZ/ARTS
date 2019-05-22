@@ -4,6 +4,25 @@
 
 ## Review
 
+[Google I/O WebAssembly](https://www.youtube.com/watch?v=njt-Qzw0mVY)
+
+将C/C++代码转为机器码，然后可以在web引擎中运行
+
+之前就已经有了可以将C转化为javascript代码的lib，叫做asm.js
+
+WebAssembly的作用
+
+- 帮助建立更好的ecosystem, 可以将c/rust的代码或是lib用于web
+- 比javascript运行速度更快，原因有:
+  - V8中.js .wasm文件的处理逻辑不通，js文件首先会进入ignition，收集数据之后转化为机器码，再进入到turboFan中，而且turboFan一旦发现运行和预计不对时，会反馈给ignition，之后发生的就是de-opt. 但是对于wasm文件，只会进入一个叫做lift-off的compiler，编译为机器码，传入到TurboFan中，不存在de-opt的过程
+  - WebAssembly gives you more predictable performance，在多个浏览器中的表现基本相同，js代码大概率区别会比较大
+
+
+> AssemblyScript -> typescript syntax with different type system
+
+- there is no gc. You should do it by yourself.
+
+
 ## Tips
 
 [typescript handbook]
