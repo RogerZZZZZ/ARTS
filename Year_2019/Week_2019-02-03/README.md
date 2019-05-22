@@ -2,6 +2,10 @@
 
 ## Algorithm
 
+[268] Missing Number
+
+[409] Longest Palindrome
+
 ## Review
 
 [What's new in Javascript (Google I/O 2019)](https://www.youtube.com/watch?v=c0oy0vQKEZE)
@@ -304,3 +308,11 @@ var s = people.next.next.next.name;
 ```
 
 ## Share
+
+[2019年大前端技术趋势深度解读](https://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&mid=2651014404&idx=2&sn=7ed7c965c10af5463b0ffadd9661ab61&chksm=bdbebd578ac93441467b1d81bc81141f2cecbee0b35dd625c62156d8f6abd33d1bea8661bea6&xtrack=1&scene=0&subscene=131&clicktime=1552918479&ascene=7&devic)
+
+关键词： 
+- flutter
+- webAssembly
+- PWA
+- 小程序
