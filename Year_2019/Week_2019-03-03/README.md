@@ -2,6 +2,8 @@
 
 ## Algorithm
 
+[443] String Compression
+
 ## Review
 
 [React 源码分析 - render(1)](https://juejin.im/post/5cca5ad2e51d456e6154b4c7)

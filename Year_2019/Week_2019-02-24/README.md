@@ -2,6 +2,9 @@
 
 ## Algorithm
 
+[434] Number of Segments in a String
+[437] Path Sum III
+
 ## Review
 
 只记录一些有意思的点
@@ -103,3 +106,5 @@ export function createRef(): RefObject {
 
 
 ## Share
+
+初次开始看教程阅读react的源代码，给我的第一感觉是，项目目录十分的多，切划分的非常的仔细，每个模块下面基本都有package.json文件和很多的test来保证项目的质量。非常的不容易，看到git history中的author都是一些十分熟悉的名字，觉得很近有很遥远。漫漫学习之路才刚刚开始。
