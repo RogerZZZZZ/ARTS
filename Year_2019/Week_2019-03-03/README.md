@@ -4,6 +4,62 @@
 
 ## Review
 
+[React 源码分析 - render(1)](https://juejin.im/post/5cca5ad2e51d456e6154b4c7)
+
+render函数创建的结构
+
+```js
+const APP = () => (
+    <div>
+        <span></span>
+        <span></span>
+    </div>
+)
+ReactDom.render(<APP/>, document.querySelector('#root'))
+```
+
+![1.png](https://github.com/RogerZZZZZ/ARTS/blob/master/Year_2019/Week_2019-03-03/img/1.png)
+
+- ReactRoot
+
+```js
+function ReactRoot({
+    container: DomContainer,
+    isConcurrent: boolean,
+    hydrate: boolean.
+}) {
+    // 创建FiberRoot, 为整个fiber树的根节点
+    const root = createContainer(container, isConconcurrent, hydrate)
+    this._internalRoot = root
+}
+```
+
+- RootFiber
+
+与FiberRoot互相引用
+
+```js
+function FiberNode(
+    tag: WorkTag,
+    pendingProps: mixed,
+    key: null | string,
+    mode: TypeOfMode,
+) {
+    this.stateNode = null // 指向FiberRoot
+    this.return = null
+    this.child = null
+    this.sibling = null
+    this.effectTag = NoEffect
+    this.alternate = null
+}
+```
+
+每个子节点都会有一个return属性指向父节点
+
+effectTag用于记录一些dom操作
+
+> 通常来说有两棵fiber树，一个叫做`old tree`，另一个叫做`workInProgress tree`，后者是正在执行更新中的tree，还能便于中断后恢复(time slicing)，两棵树的节点互相引用，为了节省内存空间。更新完成之后，会用workInProgress tree去替换old tree，这个做法叫做`double buffering`
+
 ## Tips
 
 [autod](https://github.com/node-modules/autod)
