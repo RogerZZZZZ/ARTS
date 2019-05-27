@@ -1,0 +1,17 @@
+var thirdMax = function(nums) {
+  let first = -Infinity;
+  let second = -Infinity;
+  let third = -Infinity;
+  
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] > first) {
+      [first, second, third] = [nums[i], first, second];
+    } else if (nums[i] > second && nums[i] !== first) {
+      [second, third] = [nums[i], second];
+    } else if (nums[i] > third && nums[i] !== first && nums[i] !== second) {
+      third = nums[i];
+    }
+  }
+  
+  return third === -Infinity ? first : third;
+};

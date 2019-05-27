@@ -2,6 +2,9 @@
 
 ## Algorithm
 
+[412] Fizz Buzz
+[414] third maximum number
+
 ## Review
 
 [Google I/O WebAssembly](https://www.youtube.com/watch?v=njt-Qzw0mVY)

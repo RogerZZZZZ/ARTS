@@ -2,7 +2,92 @@
 
 ## Algorithm
 
+[434] Number of Segments in a String
+[437] Path Sum III
+
 ## Review
+
+只记录一些有意思的点
+
+[React 源码分析](https://juejin.im/post/5cbae9a8e51d456e2809fba3)
+
+- ReactElement
+
+```js
+const ReactElement = function(type, key, ref, self, source, owner, props) {
+  const element = {
+    $$typeof: REACT_ELEMENT_TYPE,
+    type: type,
+    key: key,
+    ref: ref,
+    props: props,
+    _owner: owner,
+  }
+  return element
+}
+```
+
+- React中一个重要的属性: updater
+
+setState()以及forceUpdate都是直接调用updater中的方法
+
+```js
+this.updater = updater || ReactNoopUpdateQueue // 后者用于报warning
+
+Component.prototype.setState = function(partialState, callback) {
+  this.updater.enqueueSetState(this, partialState, callback, 'setState')
+}
+
+Component.prototype.forceUpdate = function(callback) {
+  this.updater.enqueueForceUpdate(this, callback, 'forceUpdate')
+}
+```
+
+- Refs
+
+ref目前两种推荐的创建方式
+
+- ref = {el => this.el = el}
+- React.createRef()
+
+```js
+export function createRef(): RefObject {
+  const refObject = {
+    current: null,
+  }
+  if (__DEV__) {
+    Object.seal(refObject)
+  }
+  return refObject
+}
+```
+
+- mapChildren
+
+```html
+<div>
+  <span>1</span>
+  <span>2</span>
+</div>
+```
+
+`React.mapChildren(root, c => [c, c])`
+
+```html
+<span>1</span>
+<span>1</span>
+<span>2</span>
+<span>2</span>
+```
+
+因为mapChildren()会把最终结果全部flatten，主要流程如下：
+
+- 入口mapChildren()
+- mapIntoWithKeyPrefixInternal 内部维护一个对象重用池，为了节省性能开销
+- traverseAllChildren
+- traverseAllChildrenImpl
+- 判断children是不是可渲染的单个元素，若不是遍历children，调用traverseAllChildrenImpl
+- 如果是执行callback，及mapSingleChildInfoContext， 如果是有效的element，则放入result中，result为mapChildren的返回值
 
 ## Tips
 
@@ -21,3 +106,5 @@
 
 
 ## Share
+
+初次开始看教程阅读react的源代码，给我的第一感觉是，项目目录十分的多，切划分的非常的仔细，每个模块下面基本都有package.json文件和很多的test来保证项目的质量。非常的不容易，看到git history中的author都是一些十分熟悉的名字，觉得很近有很遥远。漫漫学习之路才刚刚开始。
