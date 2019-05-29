@@ -2,6 +2,10 @@
 
 ## Algorithm
 
+[447] Number of Boomerangs
+
+[448] Find All Numbers Disappeared in an Array
+
 ## Review
 
 [React 源码分析 - render(2)](https://juejin.im/post/5ce21cfb6fb9a07eec599b9f)
