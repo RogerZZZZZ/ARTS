@@ -2,7 +2,122 @@
 
 ## Algorithm
 
+[485] Max Consecutive Ones
+
+[492] Construct the Rectangle
+
 ## Review
+
+[VueConf 上海 尤大大分享](https://juejin.im/post/5cf69021e51d4576bc1a0dbc)
+
+移动端解决方案:
+
+- Hybrid: Vant, Vux, Onsen UI, Ionic 4
+- Native: Weex, NativeScript, Uni-app
+
+**3.0改动**
+
+- 更小
+
+全局api和内置组件/功能支持tree-shaking
+
+- 更快
+
+1. 基于proxy的变动侦测，性能整体优于getter/setter (JS引擎会继续优化proxy)
+2. Virtual Dom重构
+3. 编译器架构重构，更多的编译时优化
+
+- 提升自身可维护性
+
+1. 采用monorepo结构，内部分层更清晰
+2. Typescript重写
+
+- 开放更多底层功能
+
+Custom Renderer
+
+```js
+import { createRenderer } from '@vue/runtime-core'
+
+const { render } = createRenderer({
+  nodeOps,
+  patchData,
+})
+```
+
+- 传统vdom的性能瓶颈
+
+1. 虽然Vue能够保证触发更新的组件最小化，但在单个组件内部依然需要遍历该组件的整个vdom树
+2. 在一些组件整个模板内只有少量动态节点的情况下，这些遍历都是性能的浪费
+3. 传统vdom的性能跟模板大小正相关，跟动态节点的数量无关
+
+所以为了解决上述瓶颈
+1. 将模板静态分析生成更优化的vdom渲染函数
+2. 将模板切分为block，每个block内部动态节点位置都是固定的
+3. 每个block的根节点会记录自己所包含的动态节点
+4. 更新时只需要直接遍历动态节点
+
+
+
+- Function-based API
+
+```js
+const App = {
+  setup() {
+    const count = value(0)
+
+    const plusOne = computed(() => count.value + 1)
+
+    const increment = () => {
+      count.value++
+    }
+
+    watch(() => count.value * 2, v => console.log(v))
+
+    onMounted(() => console.log('mounted'))
+
+    return { count }
+  }
+}
+```
+
+对比Class API:
+
+1. 更灵活的逻辑复用能力
+2. 更好的typescript类型推导支持
+3. 更好的性能
+4. Tree-shaking友好
+5. 代码更容易压缩
+
+- React hooks的替代实现
+
+```js
+function useMousePosition() {
+  const x = value(0)
+  const y = value(0)
+
+  const update = e => {
+    x.value = e.pageX
+    y.value = e.pageY
+  }
+
+  onMounted(() => {
+    window.addEventListener('mousemove', update)
+  })
+
+  onUnMounted(() => {
+    window.removeEventListener('mousemove', update)
+  })
+
+  return { x, y }
+}
+```
+
+相比React Hooks的
+
+1. 没有必报变量的问题
+2. 没有内存/GC压力
+3. 不存在内联回调导致子组件永远更新的问题
 
 ## Tips
 
