@@ -2,6 +2,10 @@
 
 ## Algorithm
 
+[453] Minimum Moves to Equal Array Elements
+
+[455] Assign Cookies
+
 ## Review
 
 ## Tips
