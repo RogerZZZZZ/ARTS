@@ -4,6 +4,89 @@
 
 ## Review
 
+[Dart语法预览 1](http://dart.goodev.org/guides/language/language-tour)
+
+> 基础概念
+
+- 所有变量引用都是对象, 每个对象都是一个类的实例,所有对象继承于Object类
+- Dart支持顶级方法(`main()`)
+- 没有初始化的变量自动获取一个默认值为`null`
+- 使用三引号创建多行字符串对象
+- 只有`true`对象才被认为是true
+- 
+
+> Built-in types
+
+- numbers
+- strings
+- booleans
+- lists
+- maps
+- runes
+- symbols
+
+
+> Function
+
+```dart
+isNoble(atomicNumber) {
+  return _nobleGases[atomicNumber] != null;
+}
+
+bool isNoble(int atomicNumber) => _nobleGases[atomicNumber] != null;
+```
+
+- Optional paramters
+
+```dart
+/// Sets the [bold] and [hidden] flags to the values
+/// you specify.
+enableFlags({bool bold, bool hidden}) {
+  // ...
+}
+
+String say(String from, String msg, [String device]) {
+  var result = '$from says $msg';
+  if (device != null) {
+    result = '$result with a $device';
+  }
+  return result;
+}
+```
+
+> The main() function
+
+```dart
+void main() {
+  querySelector("#sample_text_id")
+    ..text = "Click me!"
+    ..onClick.listen(reverseText);
+}
+// 前面代码中的 .. 语法为 级联调用（cascade）。 使用级联调用语法， 你可以在一个对象上执行多个操作。
+```
+
+> Type test operators
+
+- as 类型转换
+- is 如果对象是指定的类型返回true
+- is! 如果对象是指定的类型返回false
+
+> Assignment operators
+
+- `??=` b??= value, 如果b为null才进行赋值
+- `expr1 ?? expr2`, 如果expr1为non-null才执行expr2
+
+> Cascade notation(..)
+
+```dart
+querySelector('#button')
+  ..text = 'confirm'
+  ..classes.add('import')
+  ..onClick.listen((e) => window.alert('Confirmed!'))
+```
+
+#dart支持optional chain#: ?.
+
 ## Tips
 
 [React源码解析(三):详解事务与更新队列](https://juejin.im/post/59cc4c4bf265da0648446ce0)
