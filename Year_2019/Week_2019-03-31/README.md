@@ -2,6 +2,8 @@
 
 ## Algorithm
 
+[496] Next Greater Element I
+
 ## Review
 
 [Dart语法预览 1](http://dart.goodev.org/guides/language/language-tour)
