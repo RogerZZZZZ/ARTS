@@ -4,13 +4,13 @@
  * [443] String Compression
  */
 /**
- * @version 1 91.97%
+ * @version 1 91.21% 60ms
  * @param {character[]} chars
  * @return {number}
  */
 var compress = function(chars) {
   let cur = 0;
-  for(let i = cur; i<chars.length;) {//注意这里不能用缓存chars.length,因为数组长度在动态变化
+  for(let i = cur; i<chars.length;) {
       let ch = chars[cur];
       let count = 1;
       while(chars[i+1]==ch) {
