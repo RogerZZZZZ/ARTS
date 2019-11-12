@@ -2,6 +2,9 @@
 
 ## Algorithm
 
+[506] Relative Ranks
+[509] Fibonacci Number
+
 ## Review
 
 [Dart语法预览 3](http://dart.goodev.org/guides/language/language-tour)
