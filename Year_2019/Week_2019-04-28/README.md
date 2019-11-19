@@ -2,6 +2,8 @@
 
 ## Algorithm
 
+[530] Minimum Absolute Difference in BST
+
 ## Review
 
 ## Tips

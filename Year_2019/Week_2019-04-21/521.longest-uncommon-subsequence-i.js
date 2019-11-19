@@ -11,7 +11,10 @@
  * @return {number}
  */
 var findLUSlength = function(a, b) {
-    
+  if (a === b) return -1
+  const aLen = a.length
+  const bLen = b.length
+  return aLen > bLen ? aLen : bLen
 };
 // @lc code=end
 
