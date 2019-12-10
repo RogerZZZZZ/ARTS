@@ -18,41 +18,41 @@
  * @return {number}
  */
 
-var getMinimumDifference = function(root) {
-  const arr = []
-  count(root, arr)
+// var getMinimumDifference = function(root) {
+//   const arr = []
+//   count(root, arr)
 
-  const res = arr.sort((a, b) => a - b)
-  let min = Number.MAX_VALUE
-  for (let i = 1; i < res.length; i++) {
-    const diff = Math.abs(res[i] - res[i - 1])
-    min = min < diff ? min : diff
-  }
-  return min
-};
+//   const res = arr.sort((a, b) => a - b)
+//   let min = Number.MAX_VALUE
+//   for (let i = 1; i < res.length; i++) {
+//     const diff = Math.abs(res[i] - res[i - 1])
+//     min = min < diff ? min : diff
+//   }
+//   return min
+// };
 
-var count = function(root, arr) {
-  if (root) {
-    arr.push(root.val)
-    count(root.left, arr)
-    count(root.right, arr)
-  }
-}
-// @lc code=end
-function TreeNode(val) {
-  this.val = val;
-  this.left = this.right = null;
-}
+// var count = function(root, arr) {
+//   if (root) {
+//     arr.push(root.val)
+//     count(root.left, arr)
+//     count(root.right, arr)
+//   }
+// }
+// // @lc code=end
+// function TreeNode(val) {
+//   this.val = val;
+//   this.left = this.right = null;
+// }
 
-const node1 = new TreeNode(1)
-const node2 = new TreeNode(5)
-const node3 = new TreeNode(3)
+// const node1 = new TreeNode(1)
+// const node2 = new TreeNode(5)
+// const node3 = new TreeNode(3)
 
-node1.left = null
-node1.right = node2
-node2.left = node3
+// node1.left = null
+// node1.right = node2
+// node2.left = node3
 
-console.log(getMinimumDifference(node1))
+// console.log(getMinimumDifference(node1))
 
 
 /**
@@ -63,6 +63,7 @@ console.log(getMinimumDifference(node1))
  * }
  */
 /**
+ * @version 96%
  * @param {TreeNode} root
  * @return {number}
  */

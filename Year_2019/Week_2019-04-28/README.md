@@ -4,6 +4,8 @@
 
 [530] Minimum Absolute Difference in BST
 
+[532] K-diff Pairs in an Array
+
 ## Review
 
 ## Tips
