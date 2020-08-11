@@ -3,6 +3,7 @@
 ## Algorithm
 
 [501] Find Mode in Binary Search Tree
+[504] base-7
 
 ## Review
 

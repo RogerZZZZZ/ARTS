@@ -2,6 +2,9 @@
 
 ## Algorithm
 
+[520] Detect Capital
+[521] Longest Uncommon Subsequence I 
+
 ## Review
 
 [Effective Dart](http://dart.goodev.org/guides/language/effective-dart/usage#do-place-the-super-call-last-in-a-constructor-initialization-list)
