@@ -12,7 +12,7 @@ const getWeekStartDate = () => {
     return date.toLocaleDateString()
 }
 
-const weekStartDate = '2020-09-01'
+const weekStartDate = '2020-09-08'
 console.log(`Start to init this week ARTS. Week start at ${weekStartDate}`)
 
 let folderName = __dirname + `/Week_${weekStartDate}`
@@ -33,7 +33,7 @@ fs.mkdir(folderName, (err) => {
         }
         console.log('file create successfully')
 
-        let appendContent = `\n\n[Week_${weekStartDate}](https://github.com/RogerZZZZZ/ARTS/blob/master/Year_2019/Week_${weekStartDate})`
+        let appendContent = `\n\n[Week_${weekStartDate}](https://github.com/RogerZZZZZ/ARTS/blob/master/Year_2020/Week_${weekStartDate})`
         fs.appendFile(__dirname + '/README.md', appendContent, (err) => {
             if (err) {
                 console.log('Fail to update readme.md')
