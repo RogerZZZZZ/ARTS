@@ -17,3 +17,5 @@ Run ```node start.js``` It will automatically create the init folder and files i
 [Week_2020-09-08](https://github.com/RogerZZZZZ/ARTS/blob/master/Year_2020/Week_2020-09-08)
 
 [Week_2020-09-15](https://github.com/RogerZZZZZ/ARTS/blob/master/Year_2020/Week_2020-09-15)
+
+[Week_2020-09-22](https://github.com/RogerZZZZZ/ARTS/blob/master/Year_2020/Week_2020-09-22)
